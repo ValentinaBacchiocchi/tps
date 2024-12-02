@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head>
+    <h1>InserimentoDati</h1>
+    <style>
+        table {
+            0border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+       
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+       
+        th {
+            background-color:
+#a1b586;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>tabella Inserimento Dati</h2>
+    <form id="dataForm">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" required><br><br>
+
+
+        <label for="cognome">Cognome:</label>
+        <input type="text" id="cognome" required><br><br>
+
+
+        <label for="indirizzo">Indirizzo:</label>
+        <input type="text" id="indirizzo" required><br><br>
+
+
+        <label for="citta">Città:</label>
+        <input type="text" id="citta" required><br><br>
+
+
+        <button type="button" onclick="aggiungiDati()">Aggiungi Dati</button>
+    </form>
+
+    <table id="dataTable">
+        <thead>
+            <tr><th>Cognome</th>
+                <th>Indirizzo</th>
+                <th>Città</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        let dati = [];
+        function aggiungiDati() {
+            const nome = document.getElementById("nome").value;
+            const cognome = document.getElementById("cognome").value;
+            const indirizzo = document.getElementById("indirizzo").value;
+            const citta = document.getElementById("citta").value;           
+            dati.push([nome, cognome, indirizzo, citta]);
+            const tabella = document.getElementById("dataTable").getElementsByTagName('tbody')[0];
+            const nuovaRiga = tabella.insertRow();
+
+
+            for (let i = 0; i < 4; i++) {
+                const cella = nuovaRiga.insertCell(i);
+                cella.textContent = dati[dati.length - 1][i]; //vettore di dati chiamato dati
+           }         document.getElementById("dataForm").reset(); //resetta alla fine
+        }
+    </script>
+</body>
+</html>
