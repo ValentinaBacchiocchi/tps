@@ -1,0 +1,9 @@
+function stampaCoppie(numero) {
+for (let i = 0; i <= numero; i++) {
+let j = numero - i;
+console.log(`”${i}”-${j}`);
+}
+}
+let numeroInput = 8;
+stampaCoppie(numeroInput);
+
