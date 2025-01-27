@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>HTML5 Canvas - Draw a Line</h1>
+
+<canvas id="myCanvas" width="500" height="500" style="border:5px solid #000000; background-color:Tomato;">
+</canvas>
+
+<script>
+// Create a canvas
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+
+
+
+// Define a new path
+ctx.beginPath();
+
+// Set a start-point
+ctx.moveTo(0,500);
+ctx.lineTo(250,0);
+ctx.moveTo(250,0);
+ctx.lineTo(500,500);
+ctx.moveTo(500,500);
+ctx.lineTo(0,200);
+ctx.moveTo(0,200);
+ctx.lineTo(500,200);
+ctx.moveTo(500,200);
+ctx.lineTo(0,500);
+
+// Draw it
+ctx.stroke();
+</script>
+
+</body>
+</html>
