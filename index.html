@@ -1,22 +1,102 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Indice</title>
-        <link rel="stylesheet" href="styles.css">
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github di Valentina Bacchiocchi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #6f2a39;
+            color: white;
+            padding: 20px;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .content {
+            padding: 40px;
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .project-card {
+            background-color: #ca5877;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .project-card h3 {
+            margin-top: 0;
+        }
+        .project-card a {
+            text-decoration: none;
+            color: #f17c97;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1> GitHub di Valentina Bacchiocchi</h1>
+    </header>
 
-    </head>
-
-    <body>
-
-        <h1>indice di Valentina Bacchiocchi</h1>
-        <script src="scripts.js"></script>
-        <ul>
-            <li><a href="Tabella-migranti.html">tabella</li>
-            <li><a href="stella">stella</li>
-            <li><a href="ciclo-for">ciclo for </li>
-
-        </ul>
-        
-    </body>
-
+    <div class="content">
+        <h2>progetti</h2>
+        <div class="projects">
+            <div class="project-card">
+                <h3>ciclo-for</h3>
+                <a href="https://github.com/ValentinaBacchiocchi/ciclo-for" target="_blank">Vai al progetto</a>
+            </div>
+            <div class="project-card">
+                <h3>Progetto 2</h3>
+                <a href="https://github.com/tuo-username/progetto2" target="_blank">Vai al progetto</a>
+            </div>
+            <div class="project-card">
+                <h3>Progetto 3</h3>
+                <a href="https://github.com/tuo-username/progetto3" target="_blank">Vai al progetto</a>
+            </div>
+            <div class="project-card">
+                <h3>Progetto 4</h3>
+                <a href="https://github.com/tuo-username/progetto1" target="_blank">Vai al progetto</a>
+            </div>
+            <div class="project-card">
+                <h3>Progetto 5</h3>
+                <a href="https://github.com/tuo-username/progetto1" target="_blank">Vai al progetto</a>
+            </div>
+            <div class="project-card">
+                <h3>Progetto 6</h3>
+                <a href="https://github.com/tuo-username/progetto1" target="_blank">Vai al progetto</a>
+            </div>
+            <div class="project-card">
+                <h3>Progetto 7</h3>
+                <a href="https://github.com/tuo-username/progetto1" target="_blank">Vai al progetto</a>
+            </div>
+            <div class="project-card">
+                <h3>Progetto 8</h3>
+                <a href="https://github.com/tuo-username/progetto1" target="_blank">Vai al progetto</a>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
