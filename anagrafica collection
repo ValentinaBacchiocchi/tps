@@ -5,24 +5,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a href="../home2.html"><img src="immagini/backIcon.png" alt="Torna Indietro" width="30px" height="30px"></a>
+    <a href="../home2.html"></a>
     <div class="contenitore">
     <center><h1>Inserisci Account</h1></center>
     <form id="myForm">
         <label for="nome">Nome</label>
-        <center><input type="text" id="nome" name="nome" ><br><br></center>
+        <center><input type="text" id="nome" name="nome" placeholder="Valentina"><br><br></center>
 
         <label for="cognome">Cognome </label>
-        <center><input type="text" id="cognome" name="cognome" ><br><br></center>
+        <center><input type="text" id="cognome" name="cognome" placeholder="Bacchiocchi"><br><br></center>
 
         <label for="età">Età</label>
-        <center><input type="text" id="età" name="età" ><br><br></center>
+        <center><input type="text" id="età" name="età" placeholder="17"><br><br></center>
 
         <label for="indirizzo">Indirizzo</label>
-        <center><input type="text" id="indirizzo" name="indirizzo" ><br><br></center>
+        <center><input type="text" id="indirizzo" name="indirizzo" placeholder="bacchiocchi.valentina@itiscannizzaro.edu.it"><br><br></center>
 
         <label for="città">Città</label>
-        <center><input type="text" id="città" name="città" ><br><br><br></center>
+        <center><input type="text" id="città" name="città" placeholder="Rho"><br><br><br></center>
         <center>
         <table width="92%">
             <tr>
