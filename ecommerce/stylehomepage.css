@@ -1,0 +1,152 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #383838;
+}
+
+.navbar {
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #00a651;
+}
+
+nav a {
+  margin-left: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #00a651;
+}
+
+#searchBar {
+  padding: 8px;
+  width: 40%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.title {
+  text-align: center;
+  margin: 20px;
+  color: #00a651;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-card {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: scale(1.02);
+  border-color: #00a651;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+button {
+  background-color: #00a651;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #007f3e;
+}
+
+footer {
+  background-color: #000;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+.icon-nav {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.icon-nav img {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1); /* bianco su sfondo nero */
+  transition: transform 0.2s, filter 0.2s;
+  cursor: pointer;
+}
+
+.icon-nav img:hover {
+  transform: scale(1.1);
+  filter: brightness(0) invert(0.5) sepia(1) hue-rotate(90deg); /* effetto verde Kawasaki */
+}
+#carrello {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #fff;
+  border: 2px solid #006400;
+  border-radius: 10px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#listaCarrello {
+  list-style-type: none;
+  padding: 0;
+}
+
+#listaCarrello li {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+#totale {
+  font-size: 1.2em;
+  margin-top: 15px;
+}
+
+#carrello button {
+  padding: 10px 20px;
+  background-color: #00e608;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#carrello button:hover {
+  background-color: #1a8704;
+}
+

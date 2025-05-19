@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profilo - MotoMania</title>
+  <link rel="stylesheet" href="styleprofilo.css" />
+</head>
+<body>
+  <header>
+    <img src="img/race.png" alt="Icona Profilo" style="width: 60px; height: 60px; border-radius: 50%; margin-bottom: 10px;" />
+    <h1>Il tuo profilo</h1>
+  </header>
+
+  <main>
+    <div class="profile-section">
+      <h2>Dettagli</h2>
+      <p>Nome utente: nome.cognome123</p>
+      <p>Email: nomecognome@example.com</p>
+    </div>
+
+    <div class="profile-section">
+      <h2>Sicurezza</h2>
+      <p>Modifica password</p>
+      <p>Verifica a due fattori: Attiva</p>
+    </div>
+
+    <div class="profile-section">
+      <h2>Autorizzazioni</h2>
+      <p>Notifiche: Attive</p>
+      <p>Accesso dispositivi: 1 </p>
+    </div>
+
+    <div class="profile-section">
+      <h2>Assistenza</h2>
+      <p><a href="mail-supporto@moto-mania.it" style="color: #00ff00;">Contatta il supporto</a></p>
+      <p><a href="domande.html" style="color: #00ff00;">Domande frequenti</a></p>
+    </div>
+
+    <div class="profile-section">
+      <h2>Logout</h2>
+      <button onclick="logout()">Esci dall'account</button>
+    </div>
+  </main>
+
+  <script>
+    function logout() {
+      alert("Sei stato disconnesso.");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>

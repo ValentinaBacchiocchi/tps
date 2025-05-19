@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Specifiche Yamaha YZF-R1</title>
+  <link rel="stylesheet" href="stylespecifiche.css">
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">MotoMania</div>
+    </div>
+  </header>
+
+  <main>
+    <h1 class="title">Yamaha YZF-R1 - Dati Tecnici</h1>
+    <div class="specs-container">
+      <img src="img/yamaha.jpg" alt="Yamaha YZF-R1" style="max-width: 400px; border-radius: 12px;">
+      <table class="specs-table">
+        <tr><th>Parametro</th><th>Valore</th></tr>
+        <tr><td>Motore</td><td>4 cilindri, 998cc, 16 valvole</td></tr>
+        <tr><td>Potenza massima</td><td>200 CV a 13.500 giri/min</td></tr>
+        <tr><td>Coppia massima</td><td>112,4 Nm a 11.500 giri/min</td></tr>
+        <tr><td>Trasmissione</td><td>6 marce con quickshifter</td></tr>
+        <tr><td>Peso</td><td>201 kg</td></tr>
+        <tr><td>Serbatoio</td><td>17 litri</td></tr>
+        <tr><td>Prezzo</td><td>27.999 €</td></tr>
+      </table>
+    </div>
+  </main>
+  <script>
+  function aggiungiAlCarrello() {
+    const nome = "Yamaha YZF-R1";
+    const prezzo = document.getElementById("prezzo").textContent.trim();
+
+    let carrello = JSON.parse(localStorage.getItem("carrello")) || [];
+    carrello.push({ nome: nome, prezzo: prezzo });
+    localStorage.setItem("carrello", JSON.stringify(carrello));
+
+    alert(`Hai aggiunto "${nome}" al carrello al prezzo di €${prezzo}`);
+  }
+</script>
+</body>
+</html>
+

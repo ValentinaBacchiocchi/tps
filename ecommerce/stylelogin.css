@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  background-color: #000000;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.left-section {
+  flex: 1;
+  background: linear-gradient(to bottom,#02ad0a, #107415);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 80%;
+  max-width: 400px;
+  height: auto;
+}
+
+.right-section {
+  flex: 1;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-box {
+  width: 300px;
+  text-align: center;
+}
+
+.icon img {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin-bottom: 30px;
+  color: #02ad0a;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 20px;
+  border: 1px solid #000000;
+  background-color: #ffffff;
+}
+
+button {
+   margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  background-color: #00e608;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #02ad0a;
+}
+.welcome-text {
+  color: #ffffff;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.profile-image {
+  width: 300px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+.register-button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  background-color: #00e608;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.register-button:hover {
+  background-color: #1a8704;
+}
+
+

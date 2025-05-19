@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MotoMania - Homepage</title>
+  <link rel="stylesheet" href="stylehomepage.css">
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">MotoMania</div>
+      <input type="text" id="searchBar" placeholder="Cerca moto o accessori...">
+     <nav class="icon-nav">
+  </a>
+  <a href="carrello.html">
+    <img src="img/carrello.png" alt="Carrello" title="Carrello">
+  </a>
+  <a href="profilo.html">
+    <img src="img/race.png" alt="Profilo" title="Profilo">
+  </a>
+  <a href="cookie.html">
+    <img src="img/cookie.png" alt="Cookie" title="Cookie Policy">
+  </a>
+</nav>
+
+    </div>
+  </header>
+
+  <main>
+  <h1 class="title">Prodotti in evidenza</h1>
+  <div class="product-grid" id="productGrid">
+    <!-- PRIMA RIGA -->
+    <div class="product-card large" data-name="Yamaha YZF-R1">
+      <img src="img/yamaha.jpg" alt="Yamaha YZF-R1">
+      <h3>Yamaha YZF-R1</h3>
+      <p>Superbike da pista</p>
+      <button onclick="addToCart('Yamaha YZF-R1')">Aggiungi al carrello</button>
+      <a href="specifiche1.html"><button>Specifiche</button></a>
+    </div>
+
+    <div class="product-card large" data-name="kawasaki ninja zx10r">
+      <img src="img/kawasaki.avif" alt="kawasaki ninja zx10r">
+      <h3>kawasaki ninja zx10r</h3>
+      <p>Superbike da pista</p>
+      <button onclick="addToCart('kawasaki ninja zx10r')">Aggiungi al carrello</button>
+      <a href="specifiche2.html"><button>Specifiche</button></a>
+    </div>
+
+    <div class="product-card large" data-name="aprilia rsv1000r">
+      <img src="img/aprilia.avif" alt="aprilia rsv4">
+      <h3>aprilia rsv4</h3>
+      <p>Superbike da pista</p>
+      <button onclick="addToCart('aprilia rsv4')">Aggiungi al carrello</button>
+      <a href="specifiche3.html"><button>Specifiche</button></a>
+    </div>
+  </div>
+
+  <!-- SECONDA RIGA SEPARATA -->
+  <div class="product-grid second-row">
+    <div class="product-card large" data-name="CBR1000RR-R Fireblade">
+      <img src="img/honda.jpg" alt="CBR1000RR-R Fireblade">
+      <h3>CBR1000RR-R Fireblade</h3>
+      <p>Superbike da pista</p>
+      <button onclick="addToCart('CCBR1000RR-R Fireblade')">Aggiungi al carrello</button>
+      <a href="specifiche4.html"><button>Specifiche</button></a>
+    </div>
+
+    <div class="product-card large" data-name="Ducati Panigale V4">
+      <img src="img/ducati.webp" alt="Ducati Panigale V4">
+      <h3>Ducati Panigale V4</h3>
+      <p>Superbike da pista</p>
+      <button onclick="addToCart('Ducati Panigale V4')">Aggiungi al carrello</button>
+      <a href="specifiche5.html"><button>Specifiche</button></a>
+    </div>
+
+    <div class="product-card large" data-name="bmw m1000rr">
+      <img src="img/bmw.png" alt="bmw m1000rr">
+      <h3>bmw m1000rr</h3>
+      <p>Superbike da pista</p>
+      <button onclick="addToCart('bmw m1000rr')">Aggiungi al carrello</button>
+      <a href="specifiche6.html"><button>Specifiche</button></a>
+    </div>
+  </div>
+</main>
+
+  <script>
+    function addToCart(productName) {
+  alert(`Hai aggiunto "${productName}" al carrello.`);
+
+  // Salva su localStorage
+  let carrello = JSON.parse(localStorage.getItem("carrello")) || [];
+  carrello.push(productName);
+  localStorage.setItem("carrello", JSON.stringify(carrello));
+
+  const prezzo = prodottiPrezzi[productName];
+  const li = document.createElement("li");
+  li.textContent = `${productName} - €${prezzo.toFixed(2)}`;
+  document.getElementById("listaCarrello").appendChild(li);
+
+  totale += prezzo;
+  document.getElementById("totale").textContent = `Totale: €${totale.toFixed(2)}`;
+}
+// Ricerca prodotti
+document.getElementById('searchBar').addEventListener('input', function () {
+  const query = this.value.toLowerCase();
+  const products = document.querySelectorAll('.product-card');
+
+  products.forEach(product => {
+    const name = product.dataset.name.toLowerCase();
+    if (name.includes(query)) {
+      product.style.display = "block";
+    } else {
+      product.style.display = "none";
+    }
+  });
+});
+  </script><script>
+  function addToCart(productName) {
+    alert(`Hai aggiunto "${productName}" al carrello.`);
+    let prodotti = JSON.parse(localStorage.getItem('carrello')) || [];
+    prodotti.push(productName);
+    localStorage.setItem('carrello', JSON.stringify(prodotti));
+  }
+
+  document.getElementById('searchBar').addEventListener('input', function () {
+    const query = this.value.toLowerCase();
+    const products = document.querySelectorAll('.product-card');
+    products.forEach(product => {
+      const name = product.dataset.name.toLowerCase();
+      product.style.display = name.includes(query) ? 'block' : 'none';
+    });
+  });
+</script>
+</body>
+</html>

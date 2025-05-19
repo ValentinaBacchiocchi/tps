@@ -1,0 +1,42 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  color: #006400;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #00cc00;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #008800;
+}
+
+ul#carrello {
+  margin-top: 20px;
+  list-style-type: none;
+  padding: 0;
+}
+
+ul#carrello li {
+  padding: 10px;
+  background-color: white;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrello - MotoMania</title>
+  <link rel="stylesheet" href="stylecarrello.css">
+</head>
+<body>
+  <header>
+    <h1>Il tuo carrello</h1>
+    <a href="index.html">
+      <button>Torna alla Homepage</button>
+    </a>
+  </header>
+
+  <main>
+    <section id="carrello">
+      <ul id="listaCarrello"></ul>
+      <p id="totale">Totale: €0.00</p>
+      <a href="checkout.html">
+        <button>Vai al Checkout</button>
+      </a>
+    </section>
+  </main>
+
+  <script>
+    const prodottiPrezzi = {
+      "Yamaha YZF-R1": 19500,
+      "kawasaki ninja zx10r": 21000,
+      "aprilia rsv4": 22500,
+      "CBR1000RR-R Fireblade": 20000,
+      "Ducati Panigale V4": 24500,
+      "bmw m1000rr": 26000
+    };
+
+    let totale = 0;
+    const listaCarrello = document.getElementById("listaCarrello");
+    const totaleElemento = document.getElementById("totale");
+
+    // Recupera prodotti dal localStorage
+    const prodottiSalvati = JSON.parse(localStorage.getItem("carrello")) || [];
+
+    prodottiSalvati.forEach(nomeProdotto => {
+      const prezzo = prodottiPrezzi[nomeProdotto];
+      const li = document.createElement("li");
+      li.textContent = `${nomeProdotto} - €${prezzo.toFixed(2)}`;
+      listaCarrello.appendChild(li);
+      totale += prezzo;
+    });
+
+    totaleElemento.textContent = `Totale: €${totale.toFixed(2)}`;
+  </script>
+</body>
+</html>
+

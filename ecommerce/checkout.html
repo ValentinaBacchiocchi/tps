@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - MotoMania</title>
+</head>
+<body>
+  <div class="checkout-container">
+    <h1>Checkout</h1>
+    <ul id="checkoutList"></ul>
+    <div class="total">Totale: <span id="totalPrice">0€</span></div>
+    <button class="pay-button" onclick="paga()">Paga</button>
+  </div>
+
+  <script>
+    // Recupera i dati del carrello da localStorage
+    const checkoutList = document.getElementById('checkoutList');
+    const totalPriceElement = document.getElementById('totalPrice');
+
+    let cartItems = JSON.parse(localStorage.getItem('carrello')) || [];
+    let total = 0;
+
+    cartItems.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = `${item.nome} - ${item.prezzo} €`;
+      checkoutList.appendChild(li);
+
+      total += parseFloat(item.prezzo);
+    });
+
+    totalPriceElement.textContent = total.toFixed(2) + '€';
+
+    function paga() {
+      alert("Pagamento effettuato con successo!");
+      localStorage.removeItem('carrello');
+      window.location.href = 'homepage.html';
+    }
+  </script>
+</body>
+</html>

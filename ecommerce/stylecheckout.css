@@ -1,0 +1,53 @@
+ body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+
+    .checkout-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 600px;
+      margin: auto;
+      border: 2px solid #006400;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .total {
+      font-weight: bold;
+      font-size: 1.2em;
+      text-align: right;
+      margin-top: 20px;
+    }
+
+    .pay-button {
+      display: block;
+      margin: 30px auto 0;
+      padding: 10px 20px;
+      background-color: #00e608;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .pay-button:hover {
+      background-color: #1a8704;
+    }
