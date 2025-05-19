@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="stylelogin.css">
+</head>
+<body>
+  <div class="container">
+    <div class="left-section">
+      <img src="img/Preview.png" alt="Logo MotoMania" class="logo">
+    </div>
+    <div class="right-section">
+      <div class="login-box">
+        <div class="icon">
+          <img src="img/race.png" alt="omino profilo" class="profile-image">
+        </div>
+        <p class="welcome-text">Benvenuto su MotoMania</p>
+        <h2>USER LOGIN</h2>
+        <form id="loginForm">
+          <input type="text" id="email" placeholder="EMAIL" required>
+          <input type="password" id="password" placeholder="PASSWORD" required>
+          <button type="submit"><a href="homepage.html"></a>LOGIN</button>
+          <!-- Link alla pagina di registrazione -->
+          <a href="registrazione.html">
+            <button type="button" class="register-button">REGISTRATI</button>
+          </a>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const errorMsg = document.getElementById("errorMsg");
+
+      if (email === "" || password === "") {
+        errorMsg.textContent = "Compila tutti i campi.";
+        return;
+      }
+
+      // Simulazione di login riuscito
+      if (email === "utente@example.com" && password === "password123") {
+        errorMsg.style.color = "green";
+        errorMsg.textContent = "Accesso riuscito!";
+
+        // Reindirizzamento alla homepage (homepsge.html) dopo il login
+        setTimeout(() => {
+          window.location.href = "homepage.html"; // Homepage
+        }, 1000); // Dopo 1 secondo
+      } else {
+        errorMsg.textContent = "Credenziali errate.";
+      }
+    });
+  </script>
+</body>
+</html>
