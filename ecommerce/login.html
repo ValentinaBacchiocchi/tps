@@ -43,15 +43,15 @@
         return;
       }
 
-      // Simulazione di login riuscito
+      
       if (email === "utente@example.com" && password === "password123") {
         errorMsg.style.color = "green";
         errorMsg.textContent = "Accesso riuscito!";
 
-        // Reindirizzamento alla homepage (homepsge.html) dopo il login
+    
         setTimeout(() => {
-          window.location.href = "homepage.html"; // Homepage
-        }, 1000); // Dopo 1 secondo
+          window.location.href = "homepage.html"; 
+        }, 1000); 
       } else {
         errorMsg.textContent = "Credenziali errate.";
       }
