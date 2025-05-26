@@ -35,7 +35,7 @@
     <script>document.getElementById('registrationForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    // Recupera i valori inseriti nel form
+    // Recupera i valori inseriti
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -47,7 +47,7 @@
         return;
     }
 
-    // Salvataggio dei dati (qui è solo un esempio, in un'app reale si dovrebbe inviare al server)
+    // Salvataggio dei dati
     localStorage.setItem('user', JSON.stringify({ name, email, password }));
 
     alert('Registrazione completata con successo!');
