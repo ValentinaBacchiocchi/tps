@@ -100,12 +100,12 @@
 }
 // Ricerca prodotti
 document.getElementById('searchBar').addEventListener('input', function () {
-  const query = this.value.toLowerCase();
+  const testo = this.value.toLowerCase();
   const products = document.querySelectorAll('.product-card');
 
   products.forEach(product => {
     const name = product.dataset.name.toLowerCase();
-    if (name.includes(query)) {
+    if (name.includes(testo)) {
       product.style.display = "block";
     } else {
       product.style.display = "none";
@@ -121,11 +121,11 @@ document.getElementById('searchBar').addEventListener('input', function () {
   }
 
   document.getElementById('searchBar').addEventListener('input', function () {
-    const query = this.value.toLowerCase();
+    const testo = this.value.toLowerCase();
     const products = document.querySelectorAll('.product-card');
     products.forEach(product => {
       const name = product.dataset.name.toLowerCase();
-      product.style.display = name.includes(query) ? 'block' : 'none';
+      product.style.display = name.includes(testo) ? 'block' : 'none';
     });
   });
 </script>
