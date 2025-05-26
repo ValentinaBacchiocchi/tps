@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Domande Frequenti - MotoMania</title>
+  <link rel="stylesheet" href="stylefaq.css" />
+</head>
+<body>
+  <header>
+    <img src="img/race.png" alt="Icona MotoMania" style="width: 60px; height: 60px; border-radius: 50%; margin-bottom: 10px;" />
+    <h1>Domande Frequenti</h1>
+  </header>
+
+  <main>
+    <section class="faq">
+      <div class="faq-item">
+        <h2 onclick="toggleAnswer(this)">Come posso modificare i dati del mio profilo?</h2>
+        <p class="answer">Accedi alla sezione "Il tuo profilo", clicca su "Dettagli" e modifica le informazioni desiderate.</p>
+      </div>
+
+      <div class="faq-item">
+        <h2 onclick="toggleAnswer(this)">Come cambio la mia password?</h2>
+        <p class="answer">Vai nella sezione "Sicurezza" del tuo profilo e clicca su "Modifica password". Ti verrà chiesta la vecchia password per sicurezza.</p>
+      </div>
+
+      <div class="faq-item">
+        <h2 onclick="toggleAnswer(this)">MotoMania è sicuro?</h2>
+        <p class="answer">Sì. Utilizziamo connessioni HTTPS, sistemi di autenticazione sicura e verifica a due fattori per proteggere i tuoi dati.</p>
+      </div>
+
+      <div class="faq-item">
+        <h2 onclick="toggleAnswer(this)">Come contatto il supporto?</h2>
+        <p class="answer">Puoi inviare un'email a <a href="mailto:mail-supporto@moto-mania.it" style="color: #00ff00;">mail-supporto@moto-mania.it</a> oppure usare il modulo nella sezione "Assistenza".</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function toggleAnswer(element) {
+      const answer = element.nextElementSibling;
+      answer.style.display = (answer.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</body>
+</html>
