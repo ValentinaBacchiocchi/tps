@@ -1,1 +1,16 @@
-
+[
+  {
+    "nome": "Sara",
+    "cognome": "Agrati",
+    "indirizzo": "piazza maggiolini 1",
+    "città": "Parabiago",
+    "cap": "20015"
+  },
+  {
+    "nome": "Valentina",
+    "cognome": "Bacchiocchi",
+    "indirizzo": "Corso europa 25",
+    "città": "Rho",
+    "cap": "20017"
+  },
+]
