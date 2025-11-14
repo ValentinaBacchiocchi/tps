@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anagrafica Utenti 5B</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Anagrafica Utenti Classe 5B</h1>
+    
+    <div>
+        <label for="searchLetter">Cerca Cognomi che iniziano con:</label>
+        <input type="text" id="searchLetter" maxlength="1" />
+    </div>
+    
+    <h2>Maggiorenni:</h2>
+    <table id="table-maggiorenni">
+        <thead>
+            <tr>
+                <th>Cognome</th>
+                <th>Nome</th>
+                <th>Data di Nascita</th>
+                <th>Età</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Maggiorenni -->
+        </tbody>
+    </table>
+
+    <h2>Generazione</h2>
+    <label for="birthDate">Inserisci data di nascita:</label>
+    <input type="date" id="birthDate" />
+    <button onclick="checkGenerazione()">Verifica Generazione</button>
+    <p id="generazioneResult"></p>
+
+    <h2>Anagrafica Completa:</h2>
+    <table id="table">
+        <thead>
+            <tr>
+                <th>Cognome</th>
+                <th>Nome</th>
+                <th>Data di Nascita</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Qui andranno gli utenti -->
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
