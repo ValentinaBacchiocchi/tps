@@ -1,19 +1,25 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<title>Lettore JSON / XML</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Lettura JSON e XML</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        #output { white-space: pre; padding: 10px; background: #f0f0f0; }
+        button { margin-right: 10px; }
+    </style>
 </head>
 <body>
 
-<h1>Lettore di file JSON / XML</h1>
+    <h1>Visualizzatore di dati JSON / XML</h1>
 
-<input type="file" id="fileInput" accept=".json,.xml">
+    <button onclick="loadJSON()">Carica JSON</button>
+    <button onclick="loadXML()">Carica XML</button>
 
-<div id="output"></div>
+    <h2>Output:</h2>
+    <div id="message"></div>
 
-<!-- script  -->
-<script src="script.js"></script>
+    <script src="script.js"></script>
+
 </body>
 </html>
