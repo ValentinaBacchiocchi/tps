@@ -1,20 +1,18 @@
-<script>
+// Attiva listener sul file input
 document.getElementById("fileInput").addEventListener("change", function(e) {
     const file = e.target.files[0];
     if (!file) return;
 
     const reader = new FileReader();
-    
+
     reader.onload = function(event) {
         const text = event.target.result.trim();
         let data = [];
 
-        // Riconoscimento formato
+        // Riconoscimento del formato
         if (text.startsWith("{") || text.startsWith("[")) {
-            // È JSON
             data = parseJSON(text);
         } else if (text.startsWith("<")) {
-            // È XML
             data = parseXML(text);
         } else {
             alert("Formato non riconosciuto");
@@ -23,18 +21,17 @@ document.getElementById("fileInput").addEventListener("change", function(e) {
 
         renderData(data);
     };
-    
+
     reader.readAsText(file);
 });
 
-// Parser JSON
+// --- Parser JSON ---
 function parseJSON(text) {
     const obj = JSON.parse(text);
-    // Può essere un array o un oggetto singolo
     return Array.isArray(obj) ? obj : [obj];
 }
 
-// Parser XML → converte children in oggetti
+// --- Parser XML ---
 function parseXML(text) {
     const parser = new DOMParser();
     const xml = parser.parseFromString(text, "application/xml");
@@ -53,7 +50,7 @@ function parseXML(text) {
     return data;
 }
 
-// Rendering HTML dei dati
+// --- Rendering HTML ---
 function renderData(data) {
     const output = document.getElementById("output");
     output.innerHTML = "";
@@ -71,4 +68,3 @@ function renderData(data) {
         output.appendChild(div);
     });
 }
-</script>
