@@ -1,4 +1,3 @@
-// Attiva listener sul file input
 document.getElementById("fileInput").addEventListener("change", function(e) {
     const file = e.target.files[0];
     if (!file) return;
@@ -25,13 +24,13 @@ document.getElementById("fileInput").addEventListener("change", function(e) {
     reader.readAsText(file);
 });
 
-// --- Parser JSON ---
+// --- JSON ---
 function parseJSON(text) {
     const obj = JSON.parse(text);
     return Array.isArray(obj) ? obj : [obj];
 }
 
-// --- Parser XML ---
+// --- XML ---
 function parseXML(text) {
     const parser = new DOMParser();
     const xml = parser.parseFromString(text, "application/xml");
@@ -49,8 +48,6 @@ function parseXML(text) {
 
     return data;
 }
-
-// --- Rendering HTML ---
 function renderData(data) {
     const output = document.getElementById("output");
     output.innerHTML = "";
