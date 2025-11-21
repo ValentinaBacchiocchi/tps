@@ -52,7 +52,7 @@ fetch('file.json')
             });
         }
 
-        // Funzione per determinare la generazione
+        // Funzione per determinare di che generazions sono
         function checkGenerazione() {
             const birthDateInput = document.querySelector('#birthDate').value;
             if (!birthDateInput) {
