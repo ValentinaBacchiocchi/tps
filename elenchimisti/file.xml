@@ -1,0 +1,12 @@
+<catalogo>
+    <record>
+        <categoria>Informatica</categoria>
+        <prodotto>Mouse</prodotto>
+        <prezzo>15.90</prezzo>
+    </record>
+    <record>
+        <categoria>Informatica</categoria>
+        <prodotto>Tastiera</prodotto>
+        <prezzo>29.90</prezzo>
+    </record>
+</catalogo>
