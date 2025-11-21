@@ -1,4 +1,20 @@
 [
-  { "nome": "Mario", "cognome": "Rossi", "eta": 30 },
-  { "nome": "Luca", "cognome": "Bianchi", "eta": 25 }
+    {
+        "nome": "Marco",
+        "cognome": "Rossi",
+        "eta": 30,
+        "citta": "Milano"
+    },
+    {
+        "nome": "Luca",
+        "cognome": "Bianchi",
+        "eta": 25,
+        "citta": "Torino"
+    },
+    {
+        "nome": "Giulia",
+        "cognome": "Verdi",
+        "eta": 28,
+        "citta": "Roma"
+    }
 ]
