@@ -1,67 +1,38 @@
-document.getElementById("fileInput").addEventListener("change", function(e) {
-    const file = e.target.files[0];
-    if (!file) return;
+// LETTURA JSON (richiesta esplicita) 
+function loadJSON() {
+    const req = new XMLHttpRequest();
+    req.open("GET", "cv.json", true);
+    req.send();
 
-    const reader = new FileReader();
-
-    reader.onload = function(event) {
-        const text = event.target.result.trim();
-        let data = [];
-
-        // Riconoscimento del formato
-        if (text.startsWith("{") || text.startsWith("[")) {
-            data = parseJSON(text);
-        } else if (text.startsWith("<")) {
-            data = parseXML(text);
-        } else {
-            alert("Formato non riconosciuto");
-            return;
-        }
-
-        renderData(data);
+    req.onload = function () {
+        const json = JSON.parse(req.responseText);
+        document.getElementById("message").innerHTML =
+            `<pre>${JSON.stringify(json, null, 2)}</pre>`;
     };
-
-    reader.readAsText(file);
-});
-
-// --- JSON ---
-function parseJSON(text) {
-    const obj = JSON.parse(text);
-    return Array.isArray(obj) ? obj : [obj];
 }
 
-// --- XML ---
-function parseXML(text) {
-    const parser = new DOMParser();
-    const xml = parser.parseFromString(text, "application/xml");
 
-    const records = xml.getElementsByTagName("record");
-    const data = [];
 
-    for (let i = 0; i < records.length; i++) {
-        let obj = {};
-        for (let child of records[i].children) {
-            obj[child.tagName] = child.textContent;
-        }
-        data.push(obj);
-    }
+// LETTURA XML 
+function loadXML() {
+    const req = new XMLHttpRequest();
+    req.open("GET", "dati.xml", true);
+    req.send();
 
-    return data;
-}
-function renderData(data) {
-    const output = document.getElementById("output");
-    output.innerHTML = "";
+    req.onload = function () {
+        const xml = req.responseXML;
 
-    data.forEach(rec => {
-        const div = document.createElement("div");
-        div.className = "record";
+        let output = "";
+        
+        const persone = xml.getElementsByTagName("persona");
 
-        for (let key in rec) {
-            const p = document.createElement("p");
-            p.innerHTML = `<strong>${key}:</strong> ${rec[key]}`;
-            div.appendChild(p);
+        for (let p of persone) {
+            let nome = p.getElementsByTagName("nome")[0].textContent;
+            let cognome = p.getElementsByTagName("cognome")[0]?.textContent || "";
+            output += `- ${nome} ${cognome}<br>`;
         }
 
-        output.appendChild(div);
-    });
+        document.getElementById("message").innerHTML = output || "XML vuoto o non valido.";
+    };
 }
+
