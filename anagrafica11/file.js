@@ -1,92 +1,83 @@
 fetch('file.json')
-    .then(response => response.json())
-    .then(data => {
-        const users = data;
-        
-        // Funzione per visualizzare tutti gli utenti
-        function displayUsers(users) {
-            const tableBody = document.querySelector('#table tbody');
-            tableBody.innerHTML = '';  // Pulisce la tabella
+    .then(risposta => risposta.json())
+    .then(dati => {
 
-            users.forEach(user => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${user.cognome}</td>
-                    <td>${user.nome}</td>
-                    <td>${user.data_nascita}</td>
+        const utenti = dati;  
+        function mostraUtenti(listaUtenti) {
+            const corpoTabella = document.querySelector('#tabella-utenti tbody');
+            corpoTabella.innerHTML = '';
+
+            listaUtenti.forEach(utente => {
+                const riga = document.createElement('tr');
+                riga.innerHTML = `
+                    <td>${utente.cognome}</td>
+                    <td>${utente.nome}</td>
+                    <td>${utente.data_nascita}</td>
                 `;
-                tableBody.appendChild(row);
+                corpoTabella.appendChild(riga);
             });
         }
+        const campoRicerca = document.querySelector('#campo-ricerca-cognome');
 
-        // Funzione per la ricerca full-text dei cognomi
-        document.querySelector('#searchLetter').addEventListener('input', (event) => {
-            const searchLetter = event.target.value.toUpperCase();
-            const filteredUsers = users.filter(user => user.cognome.toUpperCase().startsWith(searchLetter));
-            displayUsers(filteredUsers);
+        campoRicerca.addEventListener('input', () => {
+            const lettera = campoRicerca.value.toUpperCase();
+
+            const utentiFiltrati = utenti.filter(utente =>
+                utente.cognome.toUpperCase().startsWith(lettera)
+            );
+
+            mostraUtenti(utentiFiltrati);
         });
+        function mostraMaggiorenni() {
+            const oggi = new Date();
+            const corpoTabella = document.querySelector('#tabella-maggiorenni tbody');
+            corpoTabella.innerHTML = '';
 
-        // Funzione per determinare se un utente è maggiorenne
-        function displayMaggiorenni() {
-            const today = new Date();
-            const tableBody = document.querySelector('#table-maggiorenni tbody');
-            tableBody.innerHTML = '';  // Pulisce la tabella
-
-            const maggiorenni = users.filter(user => {
-                const birthDate = new Date(user.data_nascita);
-                const age = today.getFullYear() - birthDate.getFullYear();
-                return age >= 18;
+            const maggiorenni = utenti.filter(utente => {
+                const dataNascita = new Date(utente.data_nascita);
+                const eta = oggi.getFullYear() - dataNascita.getFullYear();
+                return eta >= 18;
             });
 
-            maggiorenni.forEach(user => {
-                const row = document.createElement('tr');
-                const birthDate = new Date(user.data_nascita);
-                const age = today.getFullYear() - birthDate.getFullYear();
-                row.innerHTML = `
-                    <td>${user.cognome}</td>
-                    <td>${user.nome}</td>
-                    <td>${user.data_nascita}</td>
-                    <td>${age}</td>
+            maggiorenni.forEach(utente => {
+                const dataNascita = new Date(utente.data_nascita);
+                const eta = oggi.getFullYear() - dataNascita.getFullYear();
+
+                const riga = document.createElement('tr');
+                riga.innerHTML = `
+                    <td>${utente.cognome}</td>
+                    <td>${utente.nome}</td>
+                    <td>${utente.data_nascita}</td>
+                    <td>${eta}</td>
                 `;
-                tableBody.appendChild(row);
+                corpoTabella.appendChild(riga);
             });
         }
+        function determinaGenerazione() {
+            const dataInserita = document.querySelector('#input-data-nascita').value;
 
-        // Funzione per determinare di che generazions sono
-        function checkGenerazione() {
-            const birthDateInput = document.querySelector('#birthDate').value;
-            if (!birthDateInput) {
+            if (!dataInserita) {
                 alert('Inserisci una data di nascita!');
                 return;
             }
 
-            const birthYear = new Date(birthDateInput).getFullYear();
-
+            const anno = new Date(dataInserita).getFullYear();
             let generazione = '';
-            if (birthYear >= 2013) {
-                generazione = 'Generazione Alpha';
-            } else if (birthYear >= 1997) {
-                generazione = 'Generazione Z';
-            } else if (birthYear >= 1981) {
-                generazione = 'Millennials';
-            } else if (birthYear >= 1965) {
-                generazione = 'Generazione X';
-            } else if (birthYear >= 1946) {
-                generazione = 'Baby Boomers';
-            } else if (birthYear >= 1928) {
-                generazione = 'Generazione Silenziosa';
-            } else {
-                generazione = 'Greatest Generation';
-            }
 
-            document.querySelector('#generazioneResult').innerText = `Appartieni alla: ${generazione}`;
+            if (anno >= 2013) generazione = 'Generazione Alpha';
+            else if (anno >= 1997) generazione = 'Generazione Z';
+            else if (anno >= 1981) generazione = 'Millennials';
+            else if (anno >= 1965) generazione = 'Generazione X';
+            else if (anno >= 1946) generazione = 'Baby Boomers';
+            else if (anno >= 1928) generazione = 'Generazione Silenziosa';
+            else generazione = 'Greatest Generation';
+
+            document.querySelector('#risultato-generazione').innerText =
+                `Appartieni alla: ${generazione}`;
         }
-
-        // Mostra gli utenti iniziali
-        displayUsers(users);
-        // Mostra i maggiorenni
-        displayMaggiorenni();
+        window.determinaGenerazione = determinaGenerazione;
+        // MOSTRO SUBITO I DATI ALL'AVVIO
+        mostraUtenti(utenti);
+        mostraMaggiorenni();
     })
-    .catch(error => {
-        console.error('Errore nel caricare il file JSON:', error);
-    });
+    .catch(errore => console.error('Errore nel caricamento del file JSON:', errore));
