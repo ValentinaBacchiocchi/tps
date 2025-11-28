@@ -76,8 +76,7 @@ fetch('file.json')
                 `Appartieni alla: ${generazione}`;
         }
         window.determinaGenerazione = determinaGenerazione;
-        // MOSTRO SUBITO I DATI ALL'AVVIO
         mostraUtenti(utenti);
         mostraMaggiorenni();
     })
-    .catch(errore => console.error('Errore nel caricamento del file JSON:', errore));
+    .catch(errore => console.error('Errore nel caricamento:', errore));
