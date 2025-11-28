@@ -144,12 +144,13 @@ tbody tr:hover {
     .then(risposta => risposta.json())
     .then(dati => {
 
-        const utenti = dati;  
-        function mostraUtenti(listaUtenti) {
-            const corpoTabella = document.querySelector('#tabella-utenti tbody');
+        const utenti = dati;
+
+        function mostraUtenti(lista) {
+            const corpoTabella = document.querySelector('#table tbody');
             corpoTabella.innerHTML = '';
 
-            listaUtenti.forEach(utente => {
+            lista.forEach(utente => {
                 const riga = document.createElement('tr');
                 riga.innerHTML = `
                     <td>${utente.cognome}</td>
@@ -159,31 +160,31 @@ tbody tr:hover {
                 corpoTabella.appendChild(riga);
             });
         }
-        const campoRicerca = document.querySelector('#campo-ricerca-cognome');
+        const campoRicerca = document.querySelector('#searchLetter');
 
         campoRicerca.addEventListener('input', () => {
             const lettera = campoRicerca.value.toUpperCase();
 
-            const utentiFiltrati = utenti.filter(utente =>
+            const filtrati = utenti.filter(utente =>
                 utente.cognome.toUpperCase().startsWith(lettera)
             );
 
-            mostraUtenti(utentiFiltrati);
+            mostraUtenti(filtrati);
         });
         function mostraMaggiorenni() {
             const oggi = new Date();
-            const corpoTabella = document.querySelector('#tabella-maggiorenni tbody');
+            const corpoTabella = document.querySelector('#table-maggiorenni tbody');
             corpoTabella.innerHTML = '';
 
             const maggiorenni = utenti.filter(utente => {
-                const dataNascita = new Date(utente.data_nascita);
-                const eta = oggi.getFullYear() - dataNascita.getFullYear();
+                const nascita = new Date(utente.data_nascita);
+                const eta = oggi.getFullYear() - nascita.getFullYear();
                 return eta >= 18;
             });
 
             maggiorenni.forEach(utente => {
-                const dataNascita = new Date(utente.data_nascita);
-                const eta = oggi.getFullYear() - dataNascita.getFullYear();
+                const nascita = new Date(utente.data_nascita);
+                const eta = oggi.getFullYear() - nascita.getFullYear();
 
                 const riga = document.createElement('tr');
                 riga.innerHTML = `
@@ -195,15 +196,16 @@ tbody tr:hover {
                 corpoTabella.appendChild(riga);
             });
         }
-        function determinaGenerazione() {
-            const dataInserita = document.querySelector('#input-data-nascita').value;
 
-            if (!dataInserita) {
+        function checkGenerazione() {
+            const data = document.querySelector('#birthDate').value;
+
+            if (!data) {
                 alert('Inserisci una data di nascita!');
                 return;
             }
 
-            const anno = new Date(dataInserita).getFullYear();
+            const anno = new Date(data).getFullYear();
             let generazione = '';
 
             if (anno >= 2013) generazione = 'Generazione Alpha';
@@ -214,13 +216,15 @@ tbody tr:hover {
             else if (anno >= 1928) generazione = 'Generazione Silenziosa';
             else generazione = 'Greatest Generation';
 
-            document.querySelector('#risultato-generazione').innerText =
+            document.querySelector('#generazioneResult').innerText =
                 `Appartieni alla: ${generazione}`;
         }
-        window.determinaGenerazione = determinaGenerazione;
+
+        window.checkGenerazione = checkGenerazione;
         mostraUtenti(utenti);
         mostraMaggiorenni();
     })
-    .catch(errore => console.error('Errore nel caricamento:', errore));</script>
+    .catch(errore => console.error('Errore nel caricamento:', errore));
+
 </body>
 </html>
